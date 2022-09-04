@@ -14,7 +14,7 @@ NEWSPIDER_MODULE = 'amazonSearch.spiders'
 DOWNLOAD_FAIL_ON_DATALOSS = False
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = ['Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.4986.127 Safari/537.36',
+USER_AGENT = ['Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.4962.168 Safari/537.36','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5070.172 Safari/537.36','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.4964.105 Safari/537.36','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5089.124 Safari/537.36','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5140.198 Safari/537.36','Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.4986.127 Safari/537.36',
 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20110101 Firefox/101.0/HHjI9sxAPzA-62',
 'Mozilla/5.0 (X11; U; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5059.102 Safari/537.36',
 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5074.126 Safari/537.36',
@@ -39,7 +39,8 @@ USER_AGENT = ['Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHT
 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4964.118 Safari/537.36',
 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.4973.209 Safari/537.36',
 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.5079.115 Safari/537.36',
-'Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.4986.127 Safari/537.36']
+'Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.4986.127 Safari/537.36'
+,'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/101.0.5027.138 Chrome/101.0.5027.138 Safari/537.36']
 
 DUPEFILTER_CLASS = 'scrapy.dupefilters.BaseDupeFilter'
 
@@ -54,7 +55,7 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 0.5
+DOWNLOAD_DELAY = 0.2
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16

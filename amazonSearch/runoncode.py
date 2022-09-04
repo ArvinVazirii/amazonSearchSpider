@@ -4,12 +4,19 @@ from scrapy.utils.project import get_project_settings
 from scrapy.utils.log import configure_logging
 from amazonSearch.spiders.getCategories import getCategories
 from amazonSearch.spiders.search import search
+from amazonSearch.spiders.FindBestCategory import FindBestCategory
+
+
 
 configure_logging()
 setting = get_project_settings()
 runner = CrawlerRunner(setting)
+
 runner.crawl(getCategories)
+runner.crawl(FindBestCategory)
 runner.crawl(search)
+
 run = runner.join()
 run.addBoth(lambda _: reactor.stop())
+
 reactor.run()

@@ -1,22 +1,31 @@
 import scrapy, json, urllib.parse, time
+from urllib.error import HTTPError
 
 class search(scrapy.Spider):
 
     name = 'search'
 
-    site_url = 'https://www.amazon.com/'
-    searchurl = 's?k='
-    specifyurl = '&i='
+    # site_url = 'https://www.amazon.com/'
+    # searchurl = 's?k='
+    # specifyurl = '&i='
+
+    urlinfos = {}
+    searchfor = ''
 
     def start_requests(self):
 
-        name = input('what you want to search for :')
-        with open('categories.txt', 'r') as file:
-            list = json.load(file)
+        # name = input('what you want to search for :')
+        # with open('categories.txt', 'r') as file:
+        #     list = json.load(file)
 
-        for i in list:
-            url = self.site_url + self.searchurl + urllib.parse.quote_plus(name, safe = '') + self.specifyurl + i[i.find('=') + 1:]
-            yield scrapy.Request(url, callback = self.parse)
+        with open('infos.txt', 'r') as file:
+            self.urlinfos = json.load(file)
+
+        # with open('log.txt', 'r') as file:
+        #     self.search = json.load(file)
+
+
+        yield scrapy.Request(list(self.urlinfos.items())[0][0], callback = self.parse)
             # time.sleep(2)
 
     def parse(self, response):
@@ -29,7 +38,9 @@ class search(scrapy.Spider):
 
 
         if nextpage is not None:
-            # nextpage = response.urljoin(nextpage)
-            # yield scrapy.Request(nextpage, callback = self.parse)
-            yield response.follow(nextpage, callback = self.parse)
-            # time.sleep(1)
+            while True:
+                try:
+                    yield response.follow(nextpage, callback = self.parse)
+                    break
+                except HTTPError as e:
+                    print('Ridi')
